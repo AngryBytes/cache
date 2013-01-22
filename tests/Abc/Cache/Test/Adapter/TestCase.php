@@ -25,37 +25,14 @@ use \PHPUnit_Framework_TestCase as PUTestCase;
  * @package         Cache
  * @subpackage      Tests
  */
-class TestCase extends PUTestCase
+abstract class TestCase extends PUTestCase
 {
-    /**
-     * Cache
-     *
-     * @var string
-     **/
-    private $cache;
-
     /**
      * Get the cache
      *
      * @return Cache
      */
-    public function getCache()
-    {
-        return $this->cache;
-    }
-
-    /**
-     * Set the cache
-     *
-     * @param  Cache         $cache
-     * @return TestCase
-     */
-    public function setCache(Cache $cache)
-    {
-        $this->cache = $cache;
-
-        return $this;
-    }
+    abstract protected function getCache();
 
     /**
      * Test saving
@@ -64,10 +41,12 @@ class TestCase extends PUTestCase
      **/
     public function testSaveSimple()
     {
-        $this->assertSaveAndLoad('foo', 'string');
-        $this->assertSaveAndLoad(123, 'int');
-        $this->assertSaveAndLoad(123.456, 'float');
-        $this->assertSaveAndLoad(array(1, 2, 'foo', 'bar'), 'array');
+        $cache = $this->getCache();
+
+        $this->assertSaveAndLoad($cache, 'foo', 'string');
+        $this->assertSaveAndLoad($cache, 123, 'int');
+        $this->assertSaveAndLoad($cache, 123.456, 'float');
+        $this->assertSaveAndLoad($cache, array(1, 2, 'foo', 'bar'), 'array');
     }
 
     /**
@@ -77,19 +56,21 @@ class TestCase extends PUTestCase
      **/
     public function testSaveSimplePrefixed()
     {
+        $cache = $this->getCache();
+
         // Set a prefix and save/load some items
-        $this->getCache()->setIdPrefix('foo');
-        $this->assertSaveAndLoad('foo', 'string');
-        $this->assertSaveAndLoad(123, 'int');
-        $this->assertSaveAndLoad(123.456, 'float');
-        $this->assertSaveAndLoad(array(1, 2, 'foo', 'bar'), 'array');
+        $cache->setIdPrefix('foo');
+        $this->assertSaveAndLoad($cache, 'foo', 'string');
+        $this->assertSaveAndLoad($cache, 123, 'int');
+        $this->assertSaveAndLoad($cache, 123.456, 'float');
+        $this->assertSaveAndLoad($cache, array(1, 2, 'foo', 'bar'), 'array');
 
         // Change prefix after save
-        $this->assertSaveAndLoad('bar', 'foo');
-        $this->getCache()->addIdPrefix('bar');
+        $this->assertSaveAndLoad($cache, 'bar', 'foo');
+        $cache->addIdPrefix('bar');
         $this->assertInstanceOf(
             'Abc\Cache\ResultNotFound',
-            $this->getCache()->load('foo'),
+            $cache->load('foo'),
             'After prefix change items should not load'
         );
     }
@@ -101,15 +82,17 @@ class TestCase extends PUTestCase
      **/
     public function testSaveObject()
     {
+        $cache = $this->getCache();
+
         // stdClass object
         $obj = new \stdClass;
         $obj->foo = 'foo';
         $obj->bar = 'bar';
 
-        $this->assertSaveAndLoad($obj, 'object');
+        $this->assertSaveAndLoad($cache, $obj, 'object');
 
         // Class
-        $this->assertSaveAndLoad(new TestSerialize, 'serialize');
+        $this->assertSaveAndLoad($cache, new TestSerialize, 'serialize');
     }
 
     /**
@@ -119,18 +102,20 @@ class TestCase extends PUTestCase
      **/
     public function testDelete()
     {
+        $cache = $this->getCache();
+
         // Save and delete a couple of items
         foreach(array('delete1', 'delete2', 'delete3', 'delete4') as $key) {
 
             // Save (And make sure it's there)
-            $this->assertSaveAndLoad('foo-'  . $key , $key);
+            $this->assertSaveAndLoad($cache, 'foo-'  . $key , $key);
 
             // Delete
-            $this->getCache()->delete($key);
+            $cache->delete($key);
 
             $this->assertInstanceOf(
                 'Abc\Cache\ResultNotFound',
-                $this->getCache()->load($key),
+                $cache->load($key),
                 'Result for key "' . $key . '" should not load after delete'
             );
         }
@@ -139,21 +124,21 @@ class TestCase extends PUTestCase
     /**
      * Assert saving and loading of data
      *
-     *
+     * @param  Cache         $cache
      * @param  mixed         $data
      * @param  string        $key
      * @return TestCase
      **/
-    private function assertSaveAndLoad($data, $key)
+    private function assertSaveAndLoad(Cache $cache, $data, $key)
     {
-        $saved = $this->getCache()->save($data, $key);
+        $saved = $cache->save($data, $key);
 
         $this->assertTrue(
             $saved,
             'Adapter should save for key "' . $key . '"'
         );
 
-        $loaded = $this->getCache()->load($key);
+        $loaded = $cache->load($key);
 
         $this->assertEquals(
             $loaded,
