@@ -250,7 +250,11 @@ class Cache
      */
     private function getIdPrefixed($id)
     {
-        return $this->getIdPrefix() . '-' . $id;
+        if (strlen($this->getIdPrefix()) > 0) {
+            return $this->getIdPrefix() . '-' . $id;
+        }
+
+        return $id;
     }
 
     /**
