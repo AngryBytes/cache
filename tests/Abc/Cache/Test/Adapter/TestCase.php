@@ -71,6 +71,30 @@ class TestCase extends PUTestCase
     }
 
     /**
+     * Test saving with prefix
+     *
+     * @return void
+     **/
+    public function testSaveSimplePrefixed()
+    {
+        // Set a prefix and save/load some items
+        $this->getCache()->setIdPrefix('foo');
+        $this->assertSaveAndLoad('foo', 'string');
+        $this->assertSaveAndLoad(123, 'int');
+        $this->assertSaveAndLoad(123.456, 'float');
+        $this->assertSaveAndLoad(array(1, 2, 'foo', 'bar'), 'array');
+
+        // Change prefix after save
+        $this->assertSaveAndLoad('bar', 'foo');
+        $this->getCache()->addIdPrefix('bar');
+        $this->assertInstanceOf(
+            'Abc\Cache\ResultNotFound',
+            $this->getCache()->load('foo'),
+            'After prefix change items should not load'
+        );
+    }
+
+    /**
      * Test saving an object
      *
      * @return void
