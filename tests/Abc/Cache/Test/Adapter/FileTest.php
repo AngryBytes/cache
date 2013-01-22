@@ -29,24 +29,15 @@ use Abc\Cache\Adapter\File as FileAdapter;
 class FileTest extends TestCase
 {
     /**
-     * Cache
+     * Get the cache
      *
-     * @var string
+     * @return Cache
      **/
-    private $cache;
-
-    /**
-     * Constructor
-     *
-     * @return void
-     **/
-    public function __construct()
+    protected function getCache()
     {
         $adapter = new FileAdapter('/Users/naneau/tmp');
 
-        $this->setCache(
-            new Cache($adapter)
-        );
+        return new Cache($adapter);
     }
 }
 
