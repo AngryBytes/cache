@@ -1,0 +1,19 @@
+{
+    "name": "angrybytes/abc-cache",
+    "description": "Cache store with support for various adapters",
+    "authors": [
+        {
+            "name": "Maurice Fonk",
+            "email": "maurice@naneau.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "Abc\\Cache": "src/Abc/Cache"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.9"
+    }
+}

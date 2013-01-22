@@ -1,0 +1,10 @@
+<phpunit
+    bootstrap="./tests/bootstrap.php"
+    colors="true"
+    >
+
+    <testsuite name="Adapter">
+        <directory>./tests/Adapter</directory>
+    </testsuite>
+
+</phpunit>
