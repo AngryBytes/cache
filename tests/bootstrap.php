@@ -9,11 +9,20 @@ spl_autoload_register(function($className) {
     }
 
     // Transliterate and load directly
-    $fileName = __DIR__ . '/../' . str_replace(
-        '\\',
-        DIRECTORY_SEPARATOR,
-        $className
-    ) . '.php';
+    if (substr($className, 0, 15) === 'Abc\Cache\Test\\') {
+        $fileName = __DIR__ . '/' . str_replace(
+            '\\',
+            DIRECTORY_SEPARATOR,
+            $className
+        ) . '.php';
+    } else {
+        $fileName = __DIR__ . '/../src/' . str_replace(
+            '\\',
+            DIRECTORY_SEPARATOR,
+            $className
+        ) . '.php';
+    }
+
 
     if (!file_exists($fileName)) {
         return false;
