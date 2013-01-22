@@ -1,6 +1,6 @@
 <?php
 /**
- * MemcachedTest.php
+ * TestCase.php
  *
  * ABC Manager 5
  *
@@ -10,13 +10,14 @@
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-use Abc\Cache\Cache;
-use Abc\Cache\Adapter\Memcached as MemcachedAdapter;
+namespace Abc\Cache\Test\Adapter;
 
-use \PHPUnit_Framework_TestCase as TestCase;
+use Abc\Cache\Cache;
+
+use \PHPUnit_Framework_TestCase as PUTestCase;
 
 /**
- * MemcachedTest
+ * TestCase
  *
  * Testing memcached
  *
@@ -24,7 +25,7 @@ use \PHPUnit_Framework_TestCase as TestCase;
  * @package         Cache
  * @subpackage      Tests
  */
-class MemcachedTest extends TestCase
+class TestCase extends PUTestCase
 {
     /**
      * Cache
@@ -32,21 +33,6 @@ class MemcachedTest extends TestCase
      * @var string
      **/
     private $cache;
-
-    /**
-     * Constructor
-     *
-     * @return void
-     **/
-    public function __construct()
-    {
-        $adapter = new MemcachedAdapter;
-        $adapter->addServer('aberforth', 11211);
-
-        $this->setCache(
-            new Cache($adapter)
-        );
-    }
 
     /**
      * Get the cache
@@ -62,7 +48,7 @@ class MemcachedTest extends TestCase
      * Set the cache
      *
      * @param  Cache         $cache
-     * @return MemcachedTest
+     * @return TestCase
      */
     public function setCache(Cache $cache)
     {
@@ -92,7 +78,7 @@ class MemcachedTest extends TestCase
     public function testSaveObject()
     {
         // stdClass object
-        $obj = new stdClass;
+        $obj = new \stdClass;
         $obj->foo = 'foo';
         $obj->bar = 'bar';
 
@@ -132,7 +118,7 @@ class MemcachedTest extends TestCase
      *
      * @param  mixed         $data
      * @param  string        $key
-     * @return MemcachedTest
+     * @return TestCase
      **/
     private function assertSaveAndLoad($data, $key)
     {
@@ -153,16 +139,4 @@ class MemcachedTest extends TestCase
 
         return $this;
     }
-}
-
-/**
- * TestSerialize
- *
- * Class for testing serialization of objects with class
-**/
-class TestSerialize
-{
-    public $foo = 'foo';
-    public $bar = 'bar';
-    public $baz = 'baz';
 }
