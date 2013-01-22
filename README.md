@@ -6,7 +6,7 @@ memcached backend are included.
 
 ## Installation
 
-Installation through [composer at packagist](http://packagist.org/)
+Installation through [Composer at Packagist](https://packagist.org/packages/angrybytes/abc-cache)
 
 ## Usage
 
@@ -77,3 +77,4 @@ $cache = new Abc\Cache\Cache($adapter);
 $cache->addIdPrefix('foo');
 $cache->addIdPrefix('bar');
 ```
+
