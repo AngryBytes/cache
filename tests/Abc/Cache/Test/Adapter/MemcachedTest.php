@@ -31,24 +31,15 @@ use Abc\Cache\Adapter\File as FileAdapter;
 class MemcachedTest extends TestCase
 {
     /**
-     * Cache
+     * Get the cache
      *
-     * @var string
+     * @return Cache
      **/
-    private $cache;
-
-    /**
-     * Constructor
-     *
-     * @return void
-     **/
-    public function __construct()
+    protected function getCache()
     {
         $adapter = new MemcachedAdapter;
         $adapter->addServer('aberforth', 11211);
 
-        $this->setCache(
-            new Cache($adapter)
-        );
+        return new Cache($adapter);
     }
 }
