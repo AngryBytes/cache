@@ -1,6 +1,12 @@
 {
     "name": "angrybytes/abc-cache",
     "description": "Cache store with support for various adapters",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AngryBytes/abc-cache.git"
+        }
+    ],
     "authors": [
         {
             "name": "Maurice Fonk",
