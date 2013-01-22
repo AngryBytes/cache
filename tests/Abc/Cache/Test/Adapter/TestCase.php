@@ -126,7 +126,7 @@ class TestCase extends PUTestCase
             $this->assertSaveAndLoad('foo-'  . $key , $key);
 
             // Delete
-            $this->getcache()->delete($key);
+            $this->getCache()->delete($key);
 
             $this->assertInstanceOf(
                 'Abc\Cache\ResultNotFound',
