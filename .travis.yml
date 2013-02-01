@@ -6,7 +6,7 @@ php:
 
 # Install lib-memcached
 install:
-  - sudo apt-get install -qq libmemcached libmemcached-dev
+  - sudo apt-get install -qq libmemcached-dev
 
 services:
     # Add Memcached
