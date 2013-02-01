@@ -17,6 +17,8 @@ use AngryBytes\Cache\Cache;
 use AngryBytes\Cache\Adapter\Memcached as MemcachedAdapter;
 use AngryBytes\Cache\Adapter\File as FileAdapter;
 
+use AngryBytes\Cache\Test\Adapter\Mock\Memcached as MockAdapter;
+
 /**
  * MemcachedTest
  *
@@ -36,7 +38,9 @@ class MemcachedTest extends TestCase
     protected function getCache()
     {
         $adapter = new MemcachedAdapter;
-        $adapter->addServer('aberforth', 11211);
+        $adapter->setMemcached(
+            new MockAdapter
+        );
 
         return new Cache($adapter);
     }
