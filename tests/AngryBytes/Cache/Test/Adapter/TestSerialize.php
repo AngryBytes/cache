@@ -1,6 +1,6 @@
 <?php
 
-namespace Abc\Cache\Test\Adapter;
+namespace AngryBytes\Cache\Test\Adapter;
 
 /**
  * TestSerialize

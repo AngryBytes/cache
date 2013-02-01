@@ -2,23 +2,21 @@
 /**
  * Adapter.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache;
+namespace AngryBytes\Cache;
 
-use Abc\Cache\ResultNotFound;
+use AngryBytes\Cache\ResultNotFound;
 
 /**
  * Adapter
  *
  * Cache backend adapter
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  */
 abstract class Adapter

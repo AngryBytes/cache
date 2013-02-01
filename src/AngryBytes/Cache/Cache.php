@@ -2,14 +2,12 @@
 /**
  * Cache.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache;
+namespace AngryBytes\Cache;
 
 use \InvalidArgumentException as InvalidArgumentException;
 
@@ -18,7 +16,7 @@ use \InvalidArgumentException as InvalidArgumentException;
  *
  * Cache frontend, takes care of the forward facing interface for caching
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  */
 class Cache

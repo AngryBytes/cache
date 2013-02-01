@@ -2,18 +2,16 @@
 /**
  * Memcached.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Adapter
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache\Adapter;
+namespace AngryBytes\Cache\Adapter;
 
-use Abc\Cache\Adapter;
-use Abc\Cache\ResultNotFound;
+use AngryBytes\Cache\Adapter;
+use AngryBytes\Cache\ResultNotFound;
 
 use \Exception as Exception;
 
@@ -22,12 +20,12 @@ use \Memcached as MemcachedAdapter;
 /**
  * Memcached
  *
- * Simple memcached adapter for Abc\Cache.
+ * Simple memcached adapter for AngryBytes\Cache.
  *
  * Does not use any of the more advanced functions such as CAS and deferred
  * loading. Allows multiple servers to be added through addServer().
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Adapter
  */
