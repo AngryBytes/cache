@@ -13,9 +13,11 @@ namespace AngryBytes\Cache\Adapter;
 use AngryBytes\Cache\Adapter;
 use AngryBytes\Cache\ResultNotFound;
 
+use AngryBytes\Cache\Adapter\Memcached\AdapterInterface as MemcachedAdapterInterface;
+use AngryBytes\Cache\Adapter\Memcached\Adapter as MemcachedAdapter;
+
 use \Exception as Exception;
 
-use \Memcached as MemcachedAdapter;
 
 /**
  * Memcached
@@ -34,7 +36,7 @@ class Memcached extends Adapter
     /**
      * Memcached adapter
      *
-     * @var MemcachedAdapter
+     * @var MemcachedAdapterInterface
      **/
     private $memcached;
 
@@ -59,7 +61,7 @@ class Memcached extends Adapter
     /**
      * Get the memcached adapter
      *
-     * @return MemcachedAdapter
+     * @return MemcachedAdapterInterface
      */
     public function getMemcached()
     {
@@ -69,10 +71,10 @@ class Memcached extends Adapter
     /**
      * Set the memcached adapter
      *
-     * @param  MemcachedAdapter $memcached
+     * @param  MemcachedAdapterInterface $memcached
      * @return Memcached
      */
-    public function setMemcached(MemcachedAdapter $memcached)
+    public function setMemcached(MemcachedAdapterInterface $memcached)
     {
         $this->memcached = $memcached;
 
