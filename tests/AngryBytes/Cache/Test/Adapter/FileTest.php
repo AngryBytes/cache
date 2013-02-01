@@ -33,7 +33,9 @@ class FileTest extends TestCase
      **/
     protected function getCache()
     {
-        $adapter = new FileAdapter('/Users/naneau/tmp');
+        $dir = realpath(__DIR__ . '/../../../../tmp');
+
+        $adapter = new FileAdapter($dir);
 
         return new Cache($adapter);
     }
