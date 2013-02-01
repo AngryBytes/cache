@@ -1,4 +1,17 @@
 language: php
+
 php:
   - 5.4
   - 5.3
+
+# Install lib-memcached
+install:
+  - sudo apt-get install -qq libmemcached-dev
+
+services:
+    # Add Memcached
+  - memcache
+
+# Hooks
+before_script:
+    - travis/before.sh

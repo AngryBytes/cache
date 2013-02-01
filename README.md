@@ -1,5 +1,7 @@
 # ABC Cache
 
+[![Build Status](https://travis-ci.org/AngryBytes/cache.png?branch=master)](https://travis-ci.org/AngryBytes/cache)
+
 This is a simple cache store with support for a variety of backends. A file and
 memcached backend are included.
 
@@ -77,4 +79,5 @@ $cache = new Abc\Cache\Cache($adapter);
 $cache->addIdPrefix('foo');
 $cache->addIdPrefix('bar');
 ```
+
 
