@@ -4,5 +4,10 @@ php:
   - 5.4
   - 5.3
 
+services:
+    # Add Memcached
+  - memcache
+
+# Hooks
 before_script:
     - travis/before.sh
