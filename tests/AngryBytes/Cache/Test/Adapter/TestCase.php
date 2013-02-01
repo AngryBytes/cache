@@ -2,17 +2,15 @@
 /**
  * TestCase.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Tests
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache\Test\Adapter;
+namespace AngryBytes\Cache\Test\Adapter;
 
-use Abc\Cache\Cache;
+use AngryBytes\Cache\Cache;
 
 use \PHPUnit_Framework_TestCase as PUTestCase;
 
@@ -21,7 +19,7 @@ use \PHPUnit_Framework_TestCase as PUTestCase;
  *
  * Testing memcached
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Tests
  */
@@ -69,7 +67,7 @@ abstract class TestCase extends PUTestCase
         $this->assertSaveAndLoad($cache, 'bar', 'foo');
         $cache->addIdPrefix('bar');
         $this->assertInstanceOf(
-            'Abc\Cache\ResultNotFound',
+            'AngryBytes\Cache\ResultNotFound',
             $cache->load('foo'),
             'After prefix change items should not load'
         );
@@ -114,7 +112,7 @@ abstract class TestCase extends PUTestCase
             $cache->delete($key);
 
             $this->assertInstanceOf(
-                'Abc\Cache\ResultNotFound',
+                'AngryBytes\Cache\ResultNotFound',
                 $cache->load($key),
                 'Result for key "' . $key . '" should not load after delete'
             );

@@ -2,22 +2,20 @@
 /**
  * ResultNotFound.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Result
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache;
+namespace AngryBytes\Cache;
 
 /**
  * ResultNotFound
  *
  * Result not found identifier
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Result
  */

@@ -2,29 +2,27 @@
 /**
  * MemcachedTest.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Tests
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache\Test\Adapter;
+namespace AngryBytes\Cache\Test\Adapter;
 
-use Abc\Cache\Test\Adapter\TestCase;
+use AngryBytes\Cache\Test\Adapter\TestCase;
 
-use Abc\Cache\Cache;
+use AngryBytes\Cache\Cache;
 
-use Abc\Cache\Adapter\Memcached as MemcachedAdapter;
-use Abc\Cache\Adapter\File as FileAdapter;
+use AngryBytes\Cache\Adapter\Memcached as MemcachedAdapter;
+use AngryBytes\Cache\Adapter\File as FileAdapter;
 
 /**
  * MemcachedTest
  *
  * Testing memcached
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @subpackage      Tests
  */
