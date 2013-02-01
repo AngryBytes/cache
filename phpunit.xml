@@ -4,7 +4,7 @@
     >
 
     <testsuite name="Adapter">
-        <directory>./tests/Abc/Cache/Test/Adapter</directory>
+        <directory>./tests/AngryBytes/Cache/Test/Adapter</directory>
     </testsuite>
 
 </phpunit>

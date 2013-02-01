@@ -2,18 +2,16 @@
 /**
  * File.php
  *
- * ABC Manager 5
- *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  * @copyright       Copyright (c) 2010 Angry Bytes BV (http://www.angrybytes.com)
  */
 
-namespace Abc\Cache\Adapter;
+namespace AngryBytes\Cache\Adapter;
 
-use Abc\Cache\Adapter;
+use AngryBytes\Cache\Adapter;
 
-use Abc\Cache\ResultNotFound;
+use AngryBytes\Cache\ResultNotFound;
 
 use \InvalidArgumentException as InvalidArgumentException;
 
@@ -22,7 +20,7 @@ use \InvalidArgumentException as InvalidArgumentException;
  *
  * Cache backend adapter using the file system
  *
- * @category        Abc
+ * @category        AngryBytes
  * @package         Cache
  */
 class File extends Adapter

@@ -1,5 +1,5 @@
 {
-    "name": "angrybytes/abc-cache",
+    "name": "angrybytes/cache",
     "description": "Cache store with support for various adapters",
     "repositories": [
         {
@@ -17,7 +17,7 @@
     "license": "MIT",
     "autoload": {
         "psr-0": {
-            "Abc\\Cache": "src"
+            "AngryBytes\\Cache": "src"
         }
     },
     "require-dev": {
