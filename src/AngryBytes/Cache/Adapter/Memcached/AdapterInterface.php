@@ -28,4 +28,6 @@ interface AdapterInterface
     public function get($id);
 
     public function delete($id);
+
+    public function getResultCode();
 }

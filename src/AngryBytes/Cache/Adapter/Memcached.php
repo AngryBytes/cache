@@ -47,11 +47,6 @@ class Memcached extends Adapter
      **/
     public function __construct()
     {
-        // Sanity check
-        if (class_exists('MemcachedAdapter')) {
-            throw new Exception('Memcached extension not loaded');
-        }
-
         // Init the adapter
         $this->setMemcached(
             new MemcachedAdapter
