@@ -9,8 +9,15 @@
     ],
     "authors": [
         {
+            "name": "Angry Bytes BV",
+            "email": "info@angrybytes.com",
+            "role": "owner",
+            "homepage": "http://angrybytes.com/"
+        },
+        {
             "name": "Maurice Fonk",
-            "email": "maurice@naneau.net"
+            "email": "maurice@naneau.net",
+            "role": "developer"
         }
     ],
     "minimum-stability": "stable",
