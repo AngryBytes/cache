@@ -1,6 +1,7 @@
 # AngryBytes Cache
 
 [![Build Status](https://travis-ci.org/AngryBytes/cache.png?branch=master)](https://travis-ci.org/AngryBytes/cache)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AngryBytes/cache/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AngryBytes/cache/?branch=master)
 
 This is a simple cache store with support for a variety of backends. A file and
 memcached backend are included.
