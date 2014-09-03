@@ -15,3 +15,8 @@ services:
 # Hooks
 before_script:
     - travis/before.sh
+
+# Notifications
+notifications:
+    email:
+        - ci@angrybytes.com
