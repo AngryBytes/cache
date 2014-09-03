@@ -1,16 +1,18 @@
 language: php
 
 php:
-  - 5.4
-  - 5.3
+    - 5.5
+    - 5.4
+    - 5.3
+    - hhvm
 
 # Install lib-memcached
 install:
-  - sudo apt-get install -qq libmemcached-dev
+    - sudo apt-get install -qq libmemcached-dev
 
+# Add Memcached service
 services:
-    # Add Memcached
-  - memcache
+    - memcache
 
 # Hooks
 before_script:
