@@ -23,5 +23,4 @@ use \Memcached as MemcachedAdapter;
  */
 class Adapter extends MemcachedAdapter implements AdapterInterface
 {
-
 }

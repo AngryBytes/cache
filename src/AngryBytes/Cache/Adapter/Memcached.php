@@ -43,13 +43,17 @@ class Memcached extends Adapter
     /**
      * Constructor
      *
+     * @param  mixed $persistentId By default the Memcached instances are destroyed at the end of the request.
+     *                             To create an instance that persists between requests, use $persistentId to
+     *                             specify a unique ID for the instance. All instances created with the same
+     *                             $persistentId will share the same connection.
      * @return void
      **/
-    public function __construct()
+    public function __construct($persistentId = null)
     {
         // Init the adapter
         $this->setMemcached(
-            new MemcachedAdapter
+            new MemcachedAdapter($persistentId)
         );
     }
 
