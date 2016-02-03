@@ -1,5 +1,7 @@
 # AngryBytes Cache
 
+## This package is no longer maintained!
+
 [![Build Status](https://travis-ci.org/AngryBytes/cache.png?branch=master)](https://travis-ci.org/AngryBytes/cache)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AngryBytes/cache/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AngryBytes/cache/?branch=master)
 
@@ -82,6 +84,3 @@ $cache = new AngryBytes\Cache\Cache($adapter);
 $cache->addIdPrefix('foo');
 $cache->addIdPrefix('bar');
 ```
-
-
-
